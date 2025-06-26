@@ -248,6 +248,7 @@ public class BDao {
 	}
 	public BDto reply_view(String sbid) {
 		// TODO Auto-generated method stub
+		///
 		BDto dto=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
