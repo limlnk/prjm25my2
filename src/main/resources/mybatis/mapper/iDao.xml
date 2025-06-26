@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 패키지명과같게namespace -->
+<!-- ctrl+shift+x -->
+<mapper namespace="com.tech.prjm09.dao.IDao">
+
+<select id="list">
+SELECT BID,BNAME,BTITLE,BCONTENT,
+BDATE,BHIT,BGROUP,BSTEP,BINDENT 
+FROM REPLYBOARD 
+ORDER BY BGROUP DESC,BSTEP ASC
+</select>
+
+<insert id="write">
+INSERT INTO REPLYBOARD(BID,BNAME,BTITLE,
+BCONTENT,BDATE,BHIT,BGROUP,BSTEP,BINDENT) 
+VALUES(REPLYBOARD_SEQ.NEXTVAL,#{param1},#{param2},
+#{param3},SYSDATE,0,REPLYBOARD_SEQ.CURRVAL,0,0)
+</insert>
+<select id="contentView">
+SELECT BID,BNAME,BTITLE,BCONTENT,
+BDATE,BHIT,BGROUP,BSTEP,BINDENT 
+FROM REPLYBOARD WHERE BID=#{param1}
+</select>
+<update id="upHit">
+UPDATE REPLYBOARD 
+SET BHIT=BHIT+1 
+WHERE BID=#{param1}
+</update>
+<select id="modifyView">
+SELECT BID,BNAME,BTITLE,BCONTENT,
+BDATE,BHIT,BGROUP,BSTEP,BINDENT 
+FROM REPLYBOARD WHERE BID=#{param1}
+</select>
+<update id="modify">
+UPDATE REPLYBOARD 
+SET BNAME=#{param2},BTITLE=#{param3},BCONTENT=#{param4} 
+WHERE BID=#{param1}
+</update>
+<select id="replyView">
+SELECT BID,BNAME,BTITLE,BCONTENT,
+BDATE,BHIT,BGROUP,BSTEP,BINDENT 
+FROM REPLYBOARD WHERE BID=#{param1}
+</select>
+<insert id="reply">
+INSERT INTO REPLYBOARD(BID,BNAME,BTITLE,
+BCONTENT,BGROUP,BSTEP,BINDENT) 
+VALUES(REPLYBOARD_SEQ.NEXTVAL,#{param2},#{param3},#{param4},#{param5},#{param6}+1,#{param7}+1)
+</insert>
+<update id="replyShape">
+UPDATE REPLYBOARD SET BSTEP=BSTEP+1 
+WHERE BGROUP=#{param1} AND BSTEP>#{param2}
+</update>
+<delete id="delete">
+DELETE FROM REPLYBOARD WHERE BID=#{param1}
+</delete>
+</mapper>
