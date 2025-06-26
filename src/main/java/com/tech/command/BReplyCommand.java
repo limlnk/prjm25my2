@@ -32,6 +32,7 @@ public class BReplyCommand implements BCommand{
 				,bgroup,bstep,bindent);
 
 //		model.addAttribute("content_view",dto);
+		//
 	}
 
 }
