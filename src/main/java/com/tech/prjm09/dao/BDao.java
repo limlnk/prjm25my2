@@ -51,7 +51,7 @@ public class BDao {
 			String bcontent) {
 		
 		
-		//pushtest
+		
 		
 		Connection conn=null;
 		PreparedStatement pstmt=null;
