@@ -249,6 +249,7 @@ public class BDao {
 	public BDto reply_view(String sbid) {
 		// TODO Auto-generated method stub
 		///
+		
 		BDto dto=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -276,7 +277,7 @@ public class BDao {
 						bcontent, bdate, bhit, bgroup,
 						bstep, bindent);
 				
-
+				//
 			} 
 		}
 		catch (Exception e) {
