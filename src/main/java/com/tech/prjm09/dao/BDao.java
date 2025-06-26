@@ -295,7 +295,7 @@ public class BDao {
 	
 	public void replyShape(String strgroup,String strstep) {
 		
-		
+		//
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		try {
